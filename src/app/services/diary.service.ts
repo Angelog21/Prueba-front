@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DiaryService {
-  API_ENDPOINT = 'https://agenda-api.dev/api';
+  API_ENDPOINT = 'https://shrouded-shore-56699.herokuapp.com/api';
   constructor(private HttpClient: HttpClient) {}
 
   get(){
