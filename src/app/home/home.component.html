@@ -1,0 +1,23 @@
+
+<a class="btn btn-primary" style="margin-bottom: 10px" routerLink="/form">Añadir Agenda</a>
+<div *ngIf="diary">
+  <div class="card shadow-lg mt-2" *ngFor="let item of diary">
+    <div class="card-header" style="background-color: rgba(0, 0, 0, .85); color: white;">
+      {{item.title}}
+      <span class="badge badge-success" *ngIf="item.tag == 'normal'">Normal</span>
+      <span class="badge badge-danger" *ngIf="item.tag == 'urgente'">Urgente</span>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{item.description}}</p>
+      <a routerLink="/form/{{item.id}}" class="btn btn-warning">Editar</a> <button type="button" (click)="delete(item.id)" class="btn btn-danger ml-4">Eliminar</button>
+      <small class="text-muted d-flex justify-content-end" style="margin-right: 0;">Fecha: {{item.date}} <br> Lugar: {{item.site}}</small>
+    </div>
+  </div>
+</div>
+<div *ngIf="!diary">
+  <div class="card shadow-lg rounded-pill" style="background-color: rgba(0, 0, 0, .85); color: white;">
+    <div class="card-body">
+      <h3 class="card-text text-center py-4">Aun no hay registros!</h3>
+    </div>
+  </div>
+</div>
